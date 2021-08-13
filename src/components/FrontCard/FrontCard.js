@@ -13,12 +13,12 @@ import {
 } from "./components";
 
 const BigLogo = styled.img`
-  width: 250px;
-  height: 250px;
-  opacity: 0.1;
+  width: 275px;
+  height: 275px;
+  opacity: 0.15;
   position: absolute;
-  top: -15px;
-  right: -15px;
+  top: -18px;
+  right: -18px;
 `;
 
 const BlackLogo = () => {

@@ -14,9 +14,8 @@ const StyledCard = styled.div`
       `;
     } else {
       return `
-      background: rgba(79,74,143,1) ;
-        background: linear-gradient(320deg, rgba(79,74,143,1) 20%, rgb(236,171,121) 80%);      
-
+background: rgb(236,171,121);
+background: linear-gradient(150deg, rgba(236,171,121,1) 10%, rgba(79,74,143,1) 67%);
 
       `;
     }

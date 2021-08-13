@@ -5,7 +5,11 @@ export const StudentInfo = ({ student }) => {
   return (
     <Flex
       direction="column"
-      style={{ padding: "0 0 0 2rem", alignSelf: "end" }}
+      style={{
+        padding: "0 0 0 2rem",
+        alignSelf: "end",
+        marginBottom: "-0.5rem",
+      }}
     >
       <p
         style={{
@@ -25,7 +29,7 @@ export const StudentInfo = ({ student }) => {
           color: "black",
           fontSize: "1rem",
           margin: 0,
-          marginBottom: "0.5rem",
+          marginBottom: "0.1rem",
         }}
       >
         {student.securityNo}
@@ -43,7 +47,7 @@ export const StudentInfo = ({ student }) => {
           .replace(/(.{4})/g, "$1 ")
           .trim()}
       </p>
-      <p style={{ color: "black", fontSize: "1rem", margin: 0 }}>
+      <p style={{ color: "black", fontSize: "0.8rem", margin: 0 }}>
         GILTIGT TILL: {student.validUntil}
       </p>
     </Flex>

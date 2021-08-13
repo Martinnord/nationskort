@@ -36,8 +36,8 @@ const Test = ({ src, height, width }) => (
 const LeftSponsors = () => (
   <Flex
     justify="space-between"
-    align="flex-end"
-    style={{ gridArea: "leftSponsors", padding: "0 0 2rem 2rem" }}
+    align="center"
+    style={{ gridArea: "leftSponsors", padding: "0 0 0.8rem 2rem" }}
   >
     <Test alt="1" src={KOnly} />
     <Test alt="2" src={LogoTwo} height="60px" width="60px" />

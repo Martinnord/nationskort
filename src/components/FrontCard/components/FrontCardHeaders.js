@@ -11,14 +11,21 @@ const Headers = () => (
       style={{
         color: "white",
         marginTop: 0,
-        marginBottom: "0.25rem",
+        marginBottom: "0",
         fontWeight: 900,
         fontSize: "1.5rem",
       }}
     >
       Kår- och nationskort
     </h1>
-    <h3 style={{ color: "white", margin: 0, fontWeight: 200 }}>
+    <h3
+      style={{
+        color: "white",
+        margin: 0,
+        fontWeight: 400,
+        marginTop: "-0.5rem",
+      }}
+    >
       uppsalastudent.com
     </h3>
   </Flex>
