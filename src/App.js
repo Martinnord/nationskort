@@ -41,11 +41,11 @@ const schema = yup.object().shape({
   semester: yup.string().required("Obligatorisk"),
 });
 
-function getRandom(length) {
-  return Math.floor(
-    Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1)
-  );
-}
+// function getRandom(length) {
+//   return Math.floor(
+//     Math.pow(10, length - 1) + Math.random() * 9 * Math.pow(10, length - 1)
+//   );
+// }
 
 const Container = styled.div`
   height: 100%;
@@ -84,9 +84,9 @@ function App() {
     defaultValues: {
       name: "Martin Nordström",
       securityNo: "990624-8936",
-      randomId: getRandom(16),
+      randomId: "6032 9211 5170 1834",
       semester: "HT 20",
-      validUntil: "2021-02-15",
+      validUntil: "2021-09-15",
     },
   });
 
