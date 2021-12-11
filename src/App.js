@@ -86,7 +86,7 @@ function App() {
       securityNo: "990624-8936",
       randomId: "6032 9211 5170 1834",
       semester: "HT 20",
-      validUntil: "2021-09-15",
+      validUntil: "2022-02-15",
     },
   });
 
