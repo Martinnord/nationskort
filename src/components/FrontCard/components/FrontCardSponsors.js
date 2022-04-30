@@ -11,7 +11,7 @@ import LogoSix from "../../../assets/img/logo-6.png";
 import LogoSeven from "../../../assets/img/logo-7.png";
 import SlLogo from "../../../assets/img/sl-logo.png";
 import SjLogo from "../../../assets/img/sj-logo.png";
-import BookLogo from "../../../assets/img/book.jpg";
+import BookLogo from "../../../assets/img/book.png";
 
 const StyledLeftSponsor = styled.div`
   background: white;
