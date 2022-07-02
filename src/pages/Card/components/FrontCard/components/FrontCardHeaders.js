@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Flex } from "../..";
+import { Flex } from "../../../../../components";
 
 const Headers = () => (
   <Flex

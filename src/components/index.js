@@ -1,4 +1,4 @@
-export { Card } from "./Card";
 export { Flex } from "./Flex";
-export { FrontCard } from "./FrontCard/FrontCard";
-export { BackCard } from "./BackCard";
+export { PageWrapper } from "./PageWrapper";
+export { CardSettingsModal } from "./CardSettingsModal";
+export { Navbar } from "./Navbar";

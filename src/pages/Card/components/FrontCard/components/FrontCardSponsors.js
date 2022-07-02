@@ -1,17 +1,17 @@
 import styled from "styled-components";
 
-import { Flex } from "../..";
-import Stuk from "../../../assets/img/stuk_test.png";
-import KOnly from "../../../assets/img/k-only.png";
-import LogoTwo from "../../../assets/img/logo-2.png";
-import LogoThree from "../../../assets/img/logo-3.png";
-import LogoFour from "../../../assets/img/logo-4.png";
-import LogoFive from "../../../assets/img/logo-5.png";
-import LogoSix from "../../../assets/img/logo-6.png";
-import LogoSeven from "../../../assets/img/logo-7.png";
-import SlLogo from "../../../assets/img/sl-logo.png";
-import SjLogo from "../../../assets/img/sj-logo.png";
-import BookLogo from "../../../assets/img/book.png";
+import { Flex } from "../../../../../components";
+import Stuk from "../../../../../assets/img/stuk_test.png";
+import KOnly from "../../../../../assets/img/k-only.png";
+import LogoTwo from "../../../../../assets/img/logo-2.png";
+import LogoThree from "../../../../../assets/img/logo-3.png";
+import LogoFour from "../../../../../assets/img/logo-4.png";
+import LogoFive from "../../../../../assets/img/logo-5.png";
+import LogoSix from "../../../../../assets/img/logo-6.png";
+import LogoSeven from "../../../../../assets/img/logo-7.png";
+import SlLogo from "../../../../../assets/img/sl-logo.png";
+import SjLogo from "../../../../../assets/img/sj-logo.png";
+import BookLogo from "../../../../../assets/img/book.png";
 
 const StyledLeftSponsor = styled.div`
   background: white;

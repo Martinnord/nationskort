@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { Card } from "../Card";
-import K from "../../assets/img/k.png";
-import NationLogo from "../../assets/img/nation.png";
+import K from "../../../../assets/img/k.png";
+import NationLogo from "../../../../assets/img/nation.png";
 import {
   Headers,
   LeftSponsors,

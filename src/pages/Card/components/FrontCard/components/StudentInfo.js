@@ -1,5 +1,6 @@
 import React from "react";
-import { Flex } from "../..";
+
+import { Flex } from "../../../../../components";
 
 export const StudentInfo = ({ student }) => {
   return (

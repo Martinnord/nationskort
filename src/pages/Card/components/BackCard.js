@@ -2,8 +2,8 @@ import React from "react";
 import styled from "styled-components";
 
 import { Card } from "./Card";
-import StukWithBackground from "../assets/img/stuk.png";
-import Uk from "../assets/img/uk_logo.png";
+import StukWithBackground from "../../../assets/img/stuk.png";
+import Uk from "../../../assets/img/uk_logo.png";
 
 const Text = styled.p`
   font-size: 0.5rem;

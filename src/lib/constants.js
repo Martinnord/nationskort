@@ -1,0 +1,3 @@
+export const LOCAL_STORAGE = {
+  STUDENT_INFO: "STUDENT_INFO",
+};
