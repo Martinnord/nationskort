@@ -96,7 +96,7 @@ export function PhoneNumberVerification({ recaptcha }) {
       console.log("result", result);
 
       if (result.user) {
-        if (result.additionalUserInfo.isNewUse) {
+        if (result.additionalUserInfo.isNewUser) {
           const inviteDoc = firestore.doc(`invites/${result.user.phoneNumber}`);
           const userDoc = firestore.doc(`users/${result.user.uid}`);
 
