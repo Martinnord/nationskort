@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import {
   Box,
   Collapse,
@@ -11,9 +11,13 @@ import {
 } from "@chakra-ui/react";
 import { FaHamburger } from "react-icons/fa";
 import { Link as RLink } from "react-router-dom";
+import { UserContext } from "../lib/UserContext";
 
 export const Navbar = (props) => {
   const { isOpen, onToggle } = useDisclosure();
+  const { userData } = useContext(UserContext);
+
+  const isModerator = userData?.role === "MODERATOR";
 
   return (
     <Box
@@ -37,9 +41,11 @@ export const Navbar = (props) => {
           <Link color="blue.500" to="/app/profile" as={RLink}>
             Profile
           </Link>
-          <Link color="blue.500" to="/app/invite" as={RLink}>
-            Invite
-          </Link>
+          {isModerator && (
+            <Link color="blue.500" to="/app/invite" as={RLink}>
+              Invite
+            </Link>
+          )}
           <Link color="blue.500" to="/app/settings" as={RLink}>
             Card settings
           </Link>

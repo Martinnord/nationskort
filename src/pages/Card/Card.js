@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated as a } from "react-spring";
-import { VscRefresh, ImQrcode } from "react-icons/all";
+import { VscRefresh, ImQrcode, BsPhoneLandscape } from "react-icons/all";
 
 import { BackCard } from "./components/BackCard";
 import "../../App.css";
 import { FrontCard } from "./components";
 import {
+  Box,
   Button,
   Center,
   Heading,
@@ -20,7 +21,7 @@ import { RandomObjectMover } from "../../animation";
 
 import StukCo from "../../assets/img/stuk-co.png";
 import { CardSettingsModal } from "../../components";
-import { useLocalStorage } from "react-use";
+import { useLocalStorage, useOrientation } from "react-use";
 import { LOCAL_STORAGE } from "../../lib/constants";
 import { useNavigate } from "react-router-dom";
 
@@ -44,6 +45,8 @@ export function Card() {
 
   const navigate = useNavigate();
 
+  const orientation = useOrientation();
+
   const [student, setStudent] = useState(localStudentInfo);
   const [combination, setCombination] = useState("");
 
@@ -56,7 +59,7 @@ export function Card() {
   const onResetCombination = () => setCombination("");
 
   useEffect(() => {
-    if (student) {
+    if (student && orientation.type.includes("landscape")) {
       var x = new RandomObjectMover(document.getElementById("a"), window);
       var y = new RandomObjectMover(document.getElementById("b"), window);
       var a = new RandomObjectMover(document.getElementById("c"), window);
@@ -66,7 +69,7 @@ export function Card() {
       a.start();
       b.start();
     }
-  }, [student]);
+  }, [student, orientation.type]);
 
   useEffect(() => {
     const isRightCombination = RIGHT_COMBINATION === combination;
@@ -118,6 +121,16 @@ export function Card() {
     );
   }
 
+  if (!orientation.type.includes("landscape")) {
+    return (
+      <Center h="full">
+        <Center flexDirection="column">
+          <Heading>Please rotate</Heading>
+          <Box as={BsPhoneLandscape} size="100px" />
+        </Center>
+      </Center>
+    );
+  }
   return (
     <RemoveScroll style={{ height: "100%" }}>
       <Container style={{ position: "relative" }}>
@@ -175,7 +188,10 @@ export function Card() {
           >
             <a.div
               className="c back"
-              style={{ opacity: opacity.interpolate((o) => 1 - o), transform }}
+              style={{
+                opacity: opacity.interpolate((o) => 1 - o),
+                transform,
+              }}
             >
               <BackCard student={student} setStudent={setStudent} />
             </a.div>

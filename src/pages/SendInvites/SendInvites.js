@@ -28,8 +28,6 @@ import { auth, firestore } from "../../lib/firebase";
 import { PageWrapper } from "../../components";
 import { useNavigate } from "react-router-dom";
 
-const MAX_INVITES = 5;
-
 const schema = yup.object().shape({
   phoneNumber: yup.string().required("Required"),
 });
@@ -113,38 +111,29 @@ export function SendInvites() {
     }
   };
 
-  const remainingInvites = MAX_INVITES - (invites?.length || 0);
-  const canInvite = remainingInvites !== 0;
-
   return (
     <PageWrapper title="Invite your friends">
-      <Text fontSize="xl" textAlign="center">
-        You have {remainingInvites} invites
-      </Text>
+      <Box mt={6}>
+        <FormControl isInvalid={errors.phoneNumber} isRequired mb={4}>
+          <FormLabel htmlFor="name">Phone number</FormLabel>
+          <InputGroup>
+            <InputLeftAddon children="+46" />
+            <Input id="phoneNumber" {...register("phoneNumber")} type="tel" />
+          </InputGroup>
+          <FormHelperText>12 digits in total</FormHelperText>
+          <FormErrorMessage>{errors.phoneNumber?.message}</FormErrorMessage>
+        </FormControl>
 
-      {canInvite && (
-        <Box mt={6}>
-          <FormControl isInvalid={errors.phoneNumber} isRequired mb={4}>
-            <FormLabel htmlFor="name">Phone number</FormLabel>
-            <InputGroup>
-              <InputLeftAddon children="+46" />
-              <Input id="phoneNumber" {...register("phoneNumber")} type="tel" />
-            </InputGroup>
-            <FormHelperText>12 digits in total</FormHelperText>
-            <FormErrorMessage>{errors.phoneNumber?.message}</FormErrorMessage>
-          </FormControl>
-
-          <Button
-            onClick={handleSubmit(handleSendInvite)}
-            isLoading={isSubmitting}
-            mt={2}
-            isFullWidth
-            colorScheme="blue"
-          >
-            Send Invite
-          </Button>
-        </Box>
-      )}
+        <Button
+          onClick={handleSubmit(handleSendInvite)}
+          isLoading={isSubmitting}
+          mt={2}
+          isFullWidth
+          colorScheme="blue"
+        >
+          Send Invite
+        </Button>
+      </Box>
 
       {!!invites?.length && (
         <Box mt={4}>

@@ -6,8 +6,6 @@ import {
   Navigate,
   Outlet,
 } from "react-router-dom";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { auth } from "./lib/firebase";
 
 import { SendInvites } from "./pages/SendInvites/SendInvites";
 import { Card } from "./pages/Card/Card";
@@ -15,6 +13,8 @@ import { Profile } from "./pages/Profile/Profile";
 import { Settings } from "./pages/Settings/Settings";
 import { Feedback } from "./pages/Feedback/Feedback";
 import { SignUp } from "./pages/Signup/Signup";
+import { useUserData } from "./lib/hooks";
+import { UserContext } from "./lib/UserContext";
 
 const ProtectedRoute = (props) => {
   if (!props.user) {
@@ -29,30 +29,32 @@ const NotFound = () => {
 };
 
 function App() {
-  const [user, loading, error] = useAuthState(auth);
+  const user = useUserData();
 
-  if (loading) {
+  if (user.loading) {
     return <div />;
   }
 
-  console.log("user", user);
-  console.log("loading", loading);
-  console.log("error", error);
-
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="*" element={<NotFound />} />
-        <Route path="/" element={<SignUp />} />
-        <Route exact path="/app" element={<ProtectedRoute user={user} />}>
-          <Route exact path="/app/invite" element={<SendInvites />} />
-          <Route exact path="/app/card" element={<Card />} />
-          <Route exact path="/app/profile" element={<Profile />} />
-          <Route exact path="/app/settings" element={<Settings />} />
-          <Route exact path="/app/feedback" element={<Feedback />} />
-        </Route>
-      </Routes>
-    </BrowserRouter>
+    <UserContext.Provider value={user}>
+      <BrowserRouter>
+        <Routes>
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<SignUp />} />
+          <Route
+            exact
+            path="/app"
+            element={<ProtectedRoute user={user.user} />}
+          >
+            <Route exact path="/app/invite" element={<SendInvites />} />
+            <Route exact path="/app/card" element={<Card />} />
+            <Route exact path="/app/profile" element={<Profile />} />
+            <Route exact path="/app/settings" element={<Settings />} />
+            <Route exact path="/app/feedback" element={<Feedback />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </UserContext.Provider>
   );
 }
 
