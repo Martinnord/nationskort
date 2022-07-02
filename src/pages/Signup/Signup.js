@@ -4,6 +4,7 @@ import { Container } from "@chakra-ui/react";
 import { auth, firebaseApp } from "../../lib/firebase";
 import { PhoneNumberVerification } from "./components/PhoneNumberVerification";
 import { useNavigate } from "react-router-dom";
+import { useAuthState } from "react-firebase-hooks/auth";
 
 export const SignUp = () => {
   const [user] = useAuthState(auth);
@@ -18,7 +19,7 @@ export const SignUp = () => {
     if (user) {
       navigate("/app/profile");
     }
-  }, [user]);
+  }, [user, navigate]);
 
   useEffect(() => {
     if (!recaptcha) {
@@ -33,7 +34,7 @@ export const SignUp = () => {
           console.log("err", error);
         });
     }
-  }, []);
+  }, [recaptcha]);
 
   return (
     <Container>

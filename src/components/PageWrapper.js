@@ -9,7 +9,14 @@ export const PageWrapper = (props) => {
   return (
     <Flex direction="column" h="full">
       <Navbar title={props.title} />
-      <Container h="full" display="flex" flexDirection="column" mt={4}>
+      <Container
+        h="full"
+        display="flex"
+        overflow="auto"
+        pb="5rem"
+        flexDirection="column"
+        mt={4}
+      >
         <Box flex="1">{props.children}</Box>
       </Container>
       <Button
