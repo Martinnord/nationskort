@@ -71,10 +71,18 @@ export function PhoneNumberVerification({ recaptcha }) {
         if (!res.exists) {
           setError("phoneNumber", { message: "You are not invited" });
         } else {
-          auth.signInWithPhoneNumber(phoneNumber, recaptcha).then((res) => {
-            console.log("res in signin", res);
-            setConfirmationResult(res);
-          });
+          auth
+            .signInWithPhoneNumber(phoneNumber, recaptcha)
+            .then((res) => {
+              console.log("res in signin", res);
+              setConfirmationResult(res);
+            })
+            .catch((error) => {
+              console.error("Error when trying to sign in", error);
+              if (error.code === "auth/too-many-requests") {
+                setError("phoneNumber", { message: "Stop spamming" });
+              }
+            });
         }
       })
       .catch((error) => {
