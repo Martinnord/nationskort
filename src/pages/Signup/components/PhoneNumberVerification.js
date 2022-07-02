@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Heading } from "@chakra-ui/react";
+import { Box, Button, Heading } from "@chakra-ui/react";
 import {
   FormLabel,
   FormControl,
@@ -129,10 +129,10 @@ export function PhoneNumberVerification({ recaptcha }) {
         </Button>
       </form>
       {confirmationResult && (
-        <form>
+        <Box mt={8}>
           <FormControl isInvalid={codeErrors.code} isRequired mb={4}>
             <FormLabel htmlFor="code">Code</FormLabel>
-            <Input id="code" {...registerCode("code")} />
+            <Input id="code" type="tel" {...registerCode("code")} />
             <FormErrorMessage>{codeErrors.code?.message}</FormErrorMessage>
           </FormControl>
           <Button
@@ -142,7 +142,7 @@ export function PhoneNumberVerification({ recaptcha }) {
           >
             Verify code
           </Button>
-        </form>
+        </Box>
       )}
     </div>
   );

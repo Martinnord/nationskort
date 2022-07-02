@@ -51,11 +51,11 @@ export const CardSettingsModal = (props) => {
   } = useForm({
     resolver: yupResolver(schema),
     defaultValues: {
-      name: localStudentInfo.name ?? "",
-      securityNo: localStudentInfo.securityNo ?? "",
-      randomId: localStudentInfo.randomId ?? getRandomId(),
-      semester: localStudentInfo.semester ?? "",
-      validUntil: localStudentInfo.validUntil ?? validUntil,
+      name: localStudentInfo?.name ?? "",
+      securityNo: localStudentInfo?.securityNo ?? "",
+      randomId: localStudentInfo?.randomId ?? getRandomId(),
+      semester: localStudentInfo?.semester ?? "",
+      validUntil: localStudentInfo?.validUntil ?? validUntil,
     },
   });
 
