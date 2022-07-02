@@ -67,10 +67,12 @@ export function PhoneNumberVerification({ recaptcha }) {
       .doc(phoneNumber)
       .get()
       .then((res) => {
+        console.log("res in invites");
         if (!res.exists) {
           setError("phoneNumber", { message: "You are not invited" });
         } else {
           auth.signInWithPhoneNumber(phoneNumber, recaptcha).then((res) => {
+            console.log("res in signin", res);
             setConfirmationResult(res);
           });
         }
