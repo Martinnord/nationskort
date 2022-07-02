@@ -9,6 +9,8 @@ export const SignUp = () => {
   const [user] = useAuthState(auth);
   const navigate = useNavigate();
 
+  console.log("user in signup", user);
+
   const [recaptcha, setRecaptcha] = useState(null);
   const element = useRef(null);
 
