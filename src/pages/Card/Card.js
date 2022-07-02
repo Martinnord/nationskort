@@ -46,6 +46,7 @@ export function Card() {
   const navigate = useNavigate();
 
   const orientation = useOrientation();
+  const isInLandscape = orientation.angle === 90 || orientation.angle === -90;
 
   const [student, setStudent] = useState(localStudentInfo);
   const [combination, setCombination] = useState("");
@@ -59,7 +60,7 @@ export function Card() {
   const onResetCombination = () => setCombination("");
 
   useEffect(() => {
-    if (student && orientation.type.includes("landscape")) {
+    if (student && isInLandscape) {
       var x = new RandomObjectMover(document.getElementById("a"), window);
       var y = new RandomObjectMover(document.getElementById("b"), window);
       var a = new RandomObjectMover(document.getElementById("c"), window);
@@ -69,7 +70,7 @@ export function Card() {
       a.start();
       b.start();
     }
-  }, [student, orientation.type]);
+  }, [student, isInLandscape]);
 
   useEffect(() => {
     const isRightCombination = RIGHT_COMBINATION === combination;
@@ -121,12 +122,11 @@ export function Card() {
     );
   }
 
-  if (!orientation.type.includes("landscape")) {
+  if (!isInLandscape) {
     return (
       <Center h="full">
         <Center flexDirection="column">
           <Heading>Please rotate</Heading>
-          <p>{JSON.stringify(orientation)}</p>
           <Box as={BsPhoneLandscape} size="100px" />
         </Center>
       </Center>
