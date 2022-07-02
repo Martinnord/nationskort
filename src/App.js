@@ -29,11 +29,15 @@ const NotFound = () => {
 };
 
 function App() {
-  const [user, loading] = useAuthState(auth);
+  const [user, loading, error] = useAuthState(auth);
 
   if (loading) {
     return <div />;
   }
+
+  console.log("user", user);
+  console.log("loading", loading);
+  console.log("error", error);
 
   return (
     <BrowserRouter>
