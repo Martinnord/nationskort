@@ -1,12 +1,22 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Container } from "@chakra-ui/react";
 
-import { firebaseApp } from "../../lib/firebase";
+import { auth, firebaseApp } from "../../lib/firebase";
 import { PhoneNumberVerification } from "./components/PhoneNumberVerification";
+import { useNavigate } from "react-router-dom";
 
 export const SignUp = () => {
+  const [user] = useAuthState(auth);
+  const navigate = useNavigate();
+
   const [recaptcha, setRecaptcha] = useState(null);
   const element = useRef(null);
+
+  useEffect(() => {
+    if (user) {
+      navigate("/app/profile");
+    }
+  }, [user]);
 
   useEffect(() => {
     if (!recaptcha) {
@@ -21,7 +31,7 @@ export const SignUp = () => {
           console.log("err", error);
         });
     }
-  });
+  }, []);
 
   return (
     <Container>
