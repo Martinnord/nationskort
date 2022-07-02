@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, Button, Container, Flex } from "@chakra-ui/react";
+import { Box, Button, Container, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 import { Navbar } from "./Navbar";
 
@@ -18,6 +18,15 @@ export const PageWrapper = (props) => {
         mt={4}
       >
         <Box flex="1">{props.children}</Box>
+        <Text
+          textAlign="center"
+          letterSpacing="wider"
+          fontWeight="semibold"
+          textTransform="uppercase"
+          color="gray.700"
+        >
+          From the Sniderice group
+        </Text>
       </Container>
       <Button
         pos="absolute"

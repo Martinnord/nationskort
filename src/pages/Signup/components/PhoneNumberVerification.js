@@ -67,7 +67,7 @@ export function PhoneNumberVerification({ recaptcha }) {
       .doc(phoneNumber)
       .get()
       .then((res) => {
-        console.log("res in invites");
+        console.log("res in invites", res.data());
         if (!res.exists) {
           setError("phoneNumber", { message: "You are not invited" });
         } else {
@@ -93,12 +93,23 @@ export function PhoneNumberVerification({ recaptcha }) {
   const verifyCode = async (values) => {
     try {
       const result = await confirmationResult.confirm(values.code);
+      console.log("result", result);
 
       if (result.user) {
-        await firestore
-          .collection("invites")
-          .doc(result.user.phoneNumber)
-          .update({ status: "ACTIVE" });
+        if (result.additionalUserInfo.isNewUse) {
+          const inviteDoc = firestore.doc(`invites/${result.user.phoneNumber}`);
+          const userDoc = firestore.doc(`users/${result.user.uid}`);
+
+          const batch = firestore.batch();
+
+          batch.update(inviteDoc, { status: "ACTIVE" });
+          batch.set(userDoc, {
+            phoneNumber: result.user.phoneNumber,
+            role: "USER",
+          });
+
+          await batch.commit();
+        }
 
         toast({
           status: "success",

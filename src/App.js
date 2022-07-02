@@ -13,7 +13,7 @@ import { SendInvites } from "./pages/SendInvites/SendInvites";
 import { Card } from "./pages/Card/Card";
 import { Profile } from "./pages/Profile/Profile";
 import { Settings } from "./pages/Settings/Settings";
-
+import { Feedback } from "./pages/Feedback/Feedback";
 import { SignUp } from "./pages/Signup/Signup";
 
 const ProtectedRoute = (props) => {
@@ -49,6 +49,7 @@ function App() {
           <Route exact path="/app/card" element={<Card />} />
           <Route exact path="/app/profile" element={<Profile />} />
           <Route exact path="/app/settings" element={<Settings />} />
+          <Route exact path="/app/feedback" element={<Feedback />} />
         </Route>
       </Routes>
     </BrowserRouter>

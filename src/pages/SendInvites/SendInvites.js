@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   Box,
   FormLabel,
@@ -26,6 +26,7 @@ import { VscChevronDown, VscChevronUp } from "react-icons/vsc";
 
 import { auth, firestore } from "../../lib/firebase";
 import { PageWrapper } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 const MAX_INVITES = 5;
 
@@ -36,6 +37,7 @@ const schema = yup.object().shape({
 export function SendInvites() {
   const [user] = useAuthState(auth);
   const toast = useToast();
+  const navigate = useNavigate();
 
   const { isOpen, onToggle } = useDisclosure();
 
@@ -53,6 +55,21 @@ export function SendInvites() {
       phoneNumber: "",
     },
   });
+
+  useEffect(() => {
+    firestore
+      .collection("users")
+      .doc(user.uid)
+      .get()
+      .then((res) => {
+        const userData = res.data();
+        const canInvite = userData.role === "MODERATOR";
+
+        if (!canInvite) {
+          navigate("/app/profile");
+        }
+      });
+  }, [user, navigate]);
 
   const handleSendInvite = async (values) => {
     const phoneNumber = `+46${values.phoneNumber}`;
