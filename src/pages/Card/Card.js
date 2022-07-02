@@ -126,6 +126,7 @@ export function Card() {
       <Center h="full">
         <Center flexDirection="column">
           <Heading>Please rotate</Heading>
+          <p>{orientation.type}</p>
           <Box as={BsPhoneLandscape} size="100px" />
         </Center>
       </Center>
