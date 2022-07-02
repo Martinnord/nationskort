@@ -69,8 +69,6 @@ export function PhoneNumberVerification({ recaptcha }) {
       .then((res) => {
         if (!res.exists) {
           setError("phoneNumber", { message: "You are not invited" });
-        } else if (res.data().status === "ACTIVE") {
-          navigate("/app/invite");
         } else {
           auth.signInWithPhoneNumber(phoneNumber, recaptcha).then((res) => {
             setConfirmationResult(res);

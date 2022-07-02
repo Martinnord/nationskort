@@ -31,9 +31,6 @@ const NotFound = () => {
 function App() {
   const [user, loading] = useAuthState(auth);
 
-  console.log("user", user);
-  console.log("loading", loading);
-
   if (loading) {
     return <div />;
   }
