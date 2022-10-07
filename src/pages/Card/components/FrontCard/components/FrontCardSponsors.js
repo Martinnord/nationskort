@@ -49,7 +49,7 @@ const LeftSponsors = () => (
   </Flex>
 );
 
-const RightSponsors = () => (
+const RightSponsors = ({ student }) => (
   <Flex
     direction="column"
     style={{
@@ -60,9 +60,15 @@ const RightSponsors = () => (
     }}
   >
     <div style={{ marginBottom: "1rem" }}>
-      <Flex style={{ width: "100%" }}>
-        <StyledLeftSponsor style={{ padding: "0.5rem" }}>
-          <Flex align="center">
+      <Flex style={{ width: "100%", alignItems: "center" }}>
+        <StyledLeftSponsor style={{ borderRadius: "0.5rem" }}>
+          <Flex
+            align="center"
+            style={{
+              padding: "0.25rem 0.5rem",
+              justifyContent: "space-evenly",
+            }}
+          >
             <img
               alt="8"
               src={SlLogo}
@@ -70,6 +76,17 @@ const RightSponsors = () => (
             />
             <img alt="9" src={BookLogo} style={{ height: 22, width: 22 }} />
           </Flex>
+          <div
+            style={{
+              background: "#E5E5E5",
+              padding: "0.25rem",
+              borderRadius: "0 0 0.5rem 0.5rem",
+            }}
+          >
+            <p style={{ fontSize: "0.4rem" }}>
+              GILTIG TILL {student.validUntil}
+            </p>
+          </div>
         </StyledLeftSponsor>
         {/* <Sponsor marginRight="0.25rem" />
       <Sponsor /> */}

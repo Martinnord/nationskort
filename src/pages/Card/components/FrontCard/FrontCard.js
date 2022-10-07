@@ -3,7 +3,7 @@ import styled from "styled-components";
 
 import { Card } from "../Card";
 import K from "../../../../assets/img/k.png";
-import NationLogo from "../../../../assets/img/nation.png";
+import NationLogo from "../../../../assets/img/v-dala.png";
 import {
   Headers,
   LeftSponsors,
@@ -31,6 +31,7 @@ const BlackLogo = () => {
         width: 90,
         gridArea: "blackLogo",
         alignSelf: "end",
+        marginBottom: "-1rem",
       }}
     />
   );
@@ -60,7 +61,7 @@ export const FrontCard = ({ student }) => {
           <StudentInfo student={student} />
           <BlackLogo />
           <LeftSponsors />
-          <RightSponsors />
+          <RightSponsors student={student} />
         </div>
       </div>
     </Card>
