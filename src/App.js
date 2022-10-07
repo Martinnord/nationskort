@@ -39,7 +39,19 @@ function App() {
     <UserContext.Provider value={user}>
       <BrowserRouter>
         <Routes>
-          <Route exact path="/app/card" element={<Card />} />
+          <Route path="*" element={<NotFound />} />
+          <Route path="/" element={<SignUp />} />
+          <Route
+            exact
+            path="/app"
+            element={<ProtectedRoute user={user.user} />}
+          >
+            <Route exact path="/app/invite" element={<SendInvites />} />
+            <Route exact path="/app/card" element={<Card />} />
+            <Route exact path="/app/profile" element={<Profile />} />
+            <Route exact path="/app/settings" element={<Settings />} />
+            <Route exact path="/app/feedback" element={<Feedback />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </UserContext.Provider>
