@@ -48,6 +48,9 @@ export const StudentInfo = ({ student }) => {
           .replace(/(.{4})/g, "$1 ")
           .trim()}
       </p>
+      <p style={{ color: "black", fontSize: "1rem", margin: 0 }}>
+        {student.semester}
+      </p>
       <p style={{ color: "black", fontSize: "0.8rem", margin: 0 }}>
         GILTIGT TILL: {student.validUntil}
       </p>

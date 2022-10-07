@@ -72,6 +72,8 @@ export function Card() {
     }
   }, [student, isInLandscape]);
 
+  console.log("student", student);
+
   useEffect(() => {
     const isRightCombination = RIGHT_COMBINATION === combination;
     const wantsToReset = combination.includes(RESET_COMBINATION);
@@ -221,7 +223,6 @@ export function Card() {
               icon={<VscRefresh />}
               width="35px"
               height="35px"
-              mb={6}
               onClick={() => onClickCombinationButton("R")}
               variant="ghost"
             />

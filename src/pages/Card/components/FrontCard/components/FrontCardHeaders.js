@@ -36,7 +36,7 @@ const SmallHeaders = () => (
     direction="column"
     style={{ gridArea: "smallHeader", padding: "2rem 2rem 0 0" }}
   >
-    <p
+    {/* <p
       style={{
         color: "black",
         margin: 0,
@@ -45,7 +45,7 @@ const SmallHeaders = () => (
       }}
     >
       Norrlands nation
-    </p>
+    </p> */}
     <p
       style={{
         color: "black",
