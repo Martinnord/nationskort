@@ -1,12 +1,7 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated as a } from "react-spring";
-import {
-  VscRefresh,
-  ImQrcode,
-  BsPhoneLandscape,
-  BiRefresh,
-} from "react-icons/all";
+import { ImQrcode, BsPhoneLandscape, BiRefresh } from "react-icons/all";
 
 import { BackCard } from "./components/BackCard";
 import "../../App.css";
