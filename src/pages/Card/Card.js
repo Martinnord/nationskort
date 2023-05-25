@@ -1,7 +1,12 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSpring, animated as a } from "react-spring";
-import { VscRefresh, ImQrcode, BsPhoneLandscape } from "react-icons/all";
+import {
+  VscRefresh,
+  ImQrcode,
+  BsPhoneLandscape,
+  BiRefresh,
+} from "react-icons/all";
 
 import { BackCard } from "./components/BackCard";
 import "../../App.css";
@@ -10,6 +15,7 @@ import {
   Box,
   Button,
   Center,
+  Flex,
   Heading,
   IconButton,
   Text,
@@ -28,7 +34,7 @@ import { useNavigate } from "react-router-dom";
 const Container = styled.div`
   height: 100%;
   width: 100%;
-  background: #606060;
+  background: #1c1c1c;
 
   display: flex;
   justify-content: center;
@@ -71,8 +77,6 @@ export function Card() {
       b.start();
     }
   }, [student, isInLandscape]);
-
-  console.log("student", student);
 
   useEffect(() => {
     const isRightCombination = RIGHT_COMBINATION === combination;
@@ -208,32 +212,30 @@ export function Card() {
               <FrontCard student={student} />
             </a.div>
           </div>
-          <div
-            style={{
-              display: "flex",
-              background: "white",
-              flexDirection: "column",
-              alignItems: "center",
-              width: "60px",
-              padding: "1.5rem 0",
-              zIndex: 9999999,
-            }}
-          >
-            <IconButton
-              icon={<VscRefresh />}
-              width="35px"
-              height="35px"
-              onClick={() => onClickCombinationButton("R")}
-              variant="ghost"
-            />
-            <IconButton
-              icon={<ImQrcode />}
-              width="35px"
-              height="35px"
-              onClick={() => onClickCombinationButton("Q")}
-              variant="ghost"
-            />
-          </div>
+          <Flex bg="#1C1C1C" direction="column" px={6} mt={4} zIndex="docked">
+            <Flex flex={1} direction="column">
+              <IconButton
+                fontSize="3xl"
+                icon={<BiRefresh color="white" />}
+                onClick={() => onClickCombinationButton("R")}
+                variant="unstyled"
+              />
+              <IconButton
+                fontSize="2xl"
+                icon={<ImQrcode color="white" />}
+                onClick={() => onClickCombinationButton("Q")}
+                variant="unstyled"
+              />
+            </Flex>
+            <Text
+              pos="absolute"
+              bottom={8}
+              transform="rotate(270deg)"
+              color="white"
+            >
+              Stäng
+            </Text>
+          </Flex>
         </div>
         <CardSettingsModal
           isOpen={isModalOpen}

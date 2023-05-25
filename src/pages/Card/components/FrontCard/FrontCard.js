@@ -40,7 +40,7 @@ const BlackLogo = () => {
 export const FrontCard = ({ student }) => {
   return (
     <Card isBackOfCard={false}>
-      <BigLogo alt="helloooo" src={K} />
+      <BigLogo src={K} />
       <div
         style={{
           width: "100%",

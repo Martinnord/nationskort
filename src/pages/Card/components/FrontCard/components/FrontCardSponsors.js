@@ -84,7 +84,7 @@ const RightSponsors = ({ student }) => (
             }}
           >
             <p style={{ fontSize: "0.4rem" }}>
-              GILTIG TILL {student.validUntil}
+              GILTIGT TILL {student.validUntil}
             </p>
           </div>
         </StyledLeftSponsor>

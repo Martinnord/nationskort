@@ -51,11 +51,8 @@ export const StudentInfo = ({ student }) => {
       <p style={{ color: "black", fontSize: "1rem", margin: 0 }}>
         {student.semester}
       </p>
-      {/* <p style={{ color: "black", fontSize: "0.8rem", margin: 0 }}>
-        GILTIGT TILL: {student.validUntil}
-      </p> */}
       <p style={{ color: "black", fontSize: "0.8rem", margin: 0 }}>
-        GILTIGT TILL: 2023-02-10
+        GILTIGT TILL: {student.validUntil}
       </p>
     </Flex>
   );

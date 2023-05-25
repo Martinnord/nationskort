@@ -23,6 +23,7 @@ const schema = yup.object().shape({
   name: yup.string().required("Obligatorisk"),
   securityNo: yup.string().required("Obligatorisk"),
   semester: yup.string().required("Obligatorisk"),
+  validUntil: yup.string().required("Obligatorisk"),
 });
 
 const validUntil = format(addYears(new Date(), 1), "yyyy-MM-dd");
@@ -80,6 +81,13 @@ export const Settings = () => {
           </FormLabel>
           <Input id="semester" {...register("semester")} />
           <FormErrorMessage>{errors.semester?.message}</FormErrorMessage>
+        </FormControl>
+        <FormControl isInvalid={errors.semester} isRequired mb={4}>
+          <FormLabel htmlFor="validUntil" placeholder="2024-05-15">
+            Valid until
+          </FormLabel>
+          <Input id="validUnitl" {...register("validUntil")} />
+          <FormErrorMessage>{errors.validUntil?.message}</FormErrorMessage>
         </FormControl>
         <Flex justify="flex-end">
           <Button
