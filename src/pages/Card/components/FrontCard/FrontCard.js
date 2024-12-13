@@ -17,8 +17,9 @@ const BigLogo = styled.img`
   height: 275px;
   opacity: 0.15;
   position: absolute;
-  top: -18px;
-  right: -18px;
+  top: -60px;
+  right: -60px;
+  -webkit-filter: invert(1);
 `;
 
 const BlackLogo = () => {

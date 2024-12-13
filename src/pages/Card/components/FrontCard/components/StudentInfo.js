@@ -12,16 +12,6 @@ export const StudentInfo = ({ student }) => {
         marginBottom: "-0.5rem",
       }}
     >
-      <p
-        style={{
-          color: "black",
-          margin: 0,
-          marginBottom: "0.5rem",
-          fontSize: "0.85rem",
-        }}
-      >
-        Endast nation
-      </p>
       <p style={{ color: "black", fontSize: "1rem", margin: 0 }}>
         {student.name}
       </p>

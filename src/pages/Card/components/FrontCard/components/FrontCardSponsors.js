@@ -83,7 +83,7 @@ const RightSponsors = ({ student }) => (
               borderRadius: "0 0 0.5rem 0.5rem",
             }}
           >
-            <p style={{ fontSize: "0.4rem" }}>
+            <p style={{ fontSize: "0.4rem", color: "black" }}>
               GILTIGT TILL {student.validUntil}
             </p>
           </div>
@@ -106,6 +106,7 @@ const RightSponsors = ({ student }) => (
             textAlign: "center",
             marginTop: 0,
             marginBottom: -3,
+            color: "black",
           }}
         >
           VERIFIED BY

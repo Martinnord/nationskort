@@ -15,7 +15,7 @@ const StyledCard = styled.div`
     } else {
       return `
       background: #C3D7A4);
-      background: linear-gradient(60deg, #C3D7A4 10%, #C3D7A4 23%, #F3D1B6  55%, #F3D1B6 92%);
+      background: linear-gradient(40deg, #F4E39E 10%, #F4E39E 23%, #C55630  100%, #C55630 92%);
 
       `;
     }
