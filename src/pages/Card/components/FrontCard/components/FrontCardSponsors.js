@@ -29,23 +29,24 @@ const Test = ({ src, height, width }) => (
       width: width || "50px",
       marginRight: "1rem",
       objectFit: "cover",
+      "-webkit-filter": "invert(0)",
     }}
   />
 );
 
 const LeftSponsors = () => (
   <Flex
-    justify="space-between"
+    // justify="space-between"
     align="center"
     style={{ gridArea: "leftSponsors", padding: "0 0 0.8rem 2rem" }}
   >
     <Test alt="1" src={KOnly} />
-    <Test alt="2" src={LogoTwo} height="60px" width="60px" />
+    {/* <Test alt="2" src={LogoTwo} height="60px" width="60px" /> */}
     <Test alt="3" src={LogoThree} />
-    <Test alt="4" src={LogoFour} />
+    {/* <Test alt="4" src={LogoFour} /> */}
     <Test alt="5" src={LogoFive} />
-    <Test alt="6" src={LogoSix} />
-    <Test alt="7" src={LogoSeven} />
+    {/* <Test alt="6" src={LogoSix} /> */}
+    {/* <Test alt="7" src={LogoSeven} /> */}
   </Flex>
 );
 
