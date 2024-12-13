@@ -55,7 +55,7 @@ const SmallHeaders = () => (
         fontSize: "0.8rem",
       }}
     >
-      Västmanlands-Dala nation
+      Norrlands nation
     </p>
     <p
       style={{

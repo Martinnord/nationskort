@@ -13,8 +13,8 @@ import {
 } from "./components";
 
 const BigLogo = styled.img`
-  width: 275px;
-  height: 275px;
+  width: 285px;
+  height: 285px;
   opacity: 0.15;
   position: absolute;
   top: -60px;

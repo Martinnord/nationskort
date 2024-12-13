@@ -51,7 +51,7 @@ const RightSponsors = ({ student }) => (
     direction="column"
     style={{
       gridArea: "rightSponsors",
-      padding: "0 2rem 2rem 0",
+      padding: "0 0.5rem 2rem 0",
       justifySelf: "center",
       alignSelf: "end",
     }}
